@@ -4,18 +4,18 @@ A2.ibynd takes an input of letters and touchpoints and uses spatial and language
 # Mathematical Models
 A2 uses the following spatial and language models
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=P(w|s_1,s_2,...s_n)&space;=&space;\frac{P(s_1,s_2,...s_n|w)P(w)}{p(s_1,s_2,...s_n)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(w|s_1,s_2,...s_n)&space;=&space;\frac{P(s_1,s_2,...s_n|w)P(w)}{p(s_1,s_2,...s_n)}" title="P(w|s_1,s_2,...s_n) = \frac{P(s_1,s_2,...s_n|w)P(w)}{p(s_1,s_2,...s_n)}" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\bg_white&space;P(w|s_1,s_2,...s_n)&space;=&space;\frac{P(s_1,s_2,...s_n|w)P(w)}{p(s_1,s_2,...s_n)}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\bg_white&space;P(w|s_1,s_2,...s_n)&space;=&space;\frac{P(s_1,s_2,...s_n|w)P(w)}{p(s_1,s_2,...s_n)}" title="P(w|s_1,s_2,...s_n) = \frac{P(s_1,s_2,...s_n|w)P(w)}{p(s_1,s_2,...s_n)}" /></a>
 
 ## Spatial model
 For every word which shares the same length as the given set of touchpoints, A2 uses a dual Guassian spatial model:
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=P(s_i|c_i)&space;=&space;P(s_i|\mu,\sigma^2)&space;=&space;\frac{1}{(2\pi\sigma^2)^{1/2}}exp(-\frac{1}{2\sigma^2}(s-\mu)^2)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(s_i|c_i)&space;=&space;P(s_i|\mu,\sigma^2)&space;=&space;\frac{1}{(2\pi\sigma^2)^{1/2}}exp(-\frac{1}{2\sigma^2}(s-\mu)^2)" title="P(s_i|c_i) = P(s_i|\mu,\sigma^2) = \frac{1}{(2\pi\sigma^2)^{1/2}}exp(-\frac{1}{2\sigma^2}(s-\mu)^2)" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\bg_white&space;P(s_i|c_i)&space;=&space;P(s_i|\mu,\sigma^2)&space;=&space;\frac{1}{(2\pi\sigma^2)^{1/2}}exp(-\frac{1}{2\sigma^2}(s-\mu)^2)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\bg_white&space;P(s_i|c_i)&space;=&space;P(s_i|\mu,\sigma^2)&space;=&space;\frac{1}{(2\pi\sigma^2)^{1/2}}exp(-\frac{1}{2\sigma^2}(s-\mu)^2)" title="P(s_i|c_i) = P(s_i|\mu,\sigma^2) = \frac{1}{(2\pi\sigma^2)^{1/2}}exp(-\frac{1}{2\sigma^2}(s-\mu)^2)" /></a>
 
-where <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma^2" title="\sigma^2" /></a> represents a diagional covariance matrix where:
+where <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\bg_white&space;\sigma^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\bg_white&space;\sigma^2" title="\sigma^2" /></a> represents a diagional covariance matrix where:
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\sigma^2_x&space;=&space;a&space;&plus;&space;b&space;*&space;W^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma^2_x&space;=&space;a&space;&plus;&space;b&space;*&space;W^2" title="\sigma^2_x = a + b * W^2" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\bg_white&space;\sigma^2_x&space;=&space;a&space;&plus;&space;b&space;*&space;W^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\bg_white&space;\sigma^2_x&space;=&space;a&space;&plus;&space;b&space;*&space;W^2" title="\sigma^2_x = a + b * W^2" /></a>
 and 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\sigma^2_y&space;=&space;c&space;&plus;&space;d&space;*&space;H^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma^2_y&space;=&space;c&space;&plus;&space;d&space;*&space;H^2" title="\sigma^2_y = c + d * H^2" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\bg_white&space;\sigma^2_y&space;=&space;c&space;&plus;&space;d&space;*&space;H^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\bg_white&space;\sigma^2_y&space;=&space;c&space;&plus;&space;d&space;*&space;H^2" title="\sigma^2_y = c + d * H^2" /></a>
 
 ## Language model
 A2 uses a dictionary in *unigram.dict* which is multiplied with the spatial model as described above.
